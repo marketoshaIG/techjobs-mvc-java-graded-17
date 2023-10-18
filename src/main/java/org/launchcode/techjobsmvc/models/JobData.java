@@ -13,6 +13,7 @@ import java.io.InputStreamReader;
 import java.io.Reader;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Logger;
 
 /**
  * Created by LaunchCode
@@ -27,6 +28,8 @@ public class JobData {
     private static ArrayList<Location> allLocations = new ArrayList<>();
     private static ArrayList<PositionType> allPositionTypes = new ArrayList<>();
     private static ArrayList<CoreCompetency> allCoreCompetency = new ArrayList<>();
+    private static final Logger logger = Logger.getLogger(JobData.class.getName());
+
 
     /**
      * Fetch list of all job objects from loaded data,
@@ -59,14 +62,17 @@ public class JobData {
 
         ArrayList<Job> jobs = new ArrayList<>();
 //swithced to ignore instead to lower case
-
         if (value.equalsIgnoreCase("all")){
             return findAll();
         }
-
         if (column.equals("all")){
             jobs = findByValue(value);
             return jobs;
+        }
+        // Handle empty value
+        if (value == null || value.isEmpty()) {
+            logger.severe("Value is empty");
+            return new ArrayList<>();
         }
         for (Job job : allJobs) {
 
