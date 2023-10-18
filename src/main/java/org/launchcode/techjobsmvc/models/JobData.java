@@ -59,7 +59,7 @@ public class JobData {
 
         ArrayList<Job> jobs = new ArrayList<>();
 
-        if (value.toLowerCase().equals("all")){
+        if (value.equalsIgnoreCase("all")){
             return findAll();
         }
 
