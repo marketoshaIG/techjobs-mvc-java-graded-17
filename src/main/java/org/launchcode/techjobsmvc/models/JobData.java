@@ -58,6 +58,7 @@ public class JobData {
         loadData();
 
         ArrayList<Job> jobs = new ArrayList<>();
+//swithced to ignore instead to lower case
 
         if (value.equalsIgnoreCase("all")){
             return findAll();
