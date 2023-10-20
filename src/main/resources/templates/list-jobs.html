@@ -9,6 +9,7 @@
 
   <!-- TODO #1 - Use a loop to display job results in a table. -->
 <!--    new fragment for task 4-->
+  <fragment th:fragment="jobListing(job)">
   <table th:each = "job:${jobs}" class = "job-listing">
       <tr>
         <td>ID:</td>
@@ -41,6 +42,7 @@
       </tr>
 
   </table>
+  </fragment>
 </div>
 
 </body>
